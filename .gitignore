@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+
+# VSCode
+.vscode/
+
+# Docker
+*.log
+*.pid
+*.db
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+#pg_data
+pg_data
+
+# Virtual env
+venv/
+env/
