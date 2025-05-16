@@ -3,6 +3,7 @@ from pydantic import BaseModel
 from kafka import KafkaProducer
 import json
 import uuid
+from app.api import users
 
 # Thiết lập Kafka producer
 producer = KafkaProducer(
@@ -34,3 +35,6 @@ def submit_ride(ride: Ride):
     producer.flush()
 
     return {'ride_id': data['ride_id'], 'status': 'submitted'}
+
+
+app.include_router(users.router, prefix="/users", tags=["users"])

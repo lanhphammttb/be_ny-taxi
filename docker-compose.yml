@@ -57,6 +57,21 @@ services:
     networks:
       - pg-network
 
+  airflow:
+    image: apache/airflow:2.8.0
+    name: airflow
+    environment:
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "false"
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    volumes:
+      - ./airflow:/opt/airflow
+    ports:
+      - "8080:8080"
+    command: webserver
+    networks:
+      - pg-network
+      
 networks:
   kafka-network:
   pg-network:
